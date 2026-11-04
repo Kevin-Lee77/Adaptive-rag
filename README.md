@@ -57,27 +57,33 @@
 
 ## 系统架构
 
-```mermaid
-flowchart LR
-    U["用户 · Web / CLI / HTTP"] --> API["FastAPI · JSON / SSE"]
-    API --> S["ChatService · 限流 / UoW / trace_id"]
-    S --> G["LangGraph：护栏 → 意图 → 复杂度路由"]
-    G --> D["DIRECT"]
-    G --> R["SINGLE / MULTI"]
-    G --> A["AGENT"]
-    G --> F["REFUSE"]
-    R --> H["BM25 + 向量 → RRF → 精排"]
-    A --> T["Planner → 权限校验 → 工具 → 人工确认"]
-    D --> O["生成 → 忠实度检查 → 记忆压缩"]
-    H --> O
-    T --> O
-    F --> O
-    O --> X["回答 + citations + trace_id"]
-```
+![Adaptive RAG 系统架构](docs/assets/system-architecture.svg)
+
+架构图按 `app/agents/graph.py` 的实际分支绘制：拒答直接进入记忆压缩，其余路径经过答案生成与忠实度检查。
 
 分层约定：API 只做协议与校验，`ChatService` 编排请求生命周期，LangGraph 只负责流程，SQL 在 Repository，模型调用在 Provider。默认 SQLite + 内存向量，可按配置切换到 Postgres、Redis、Qdrant 与远程模型。
 
 > 说明：这是一个**受控的 Agentic RAG 工作流**——只有 `AGENT` 路径包含模型规划，且步数、工具次数、可用工具集都受程序约束；不是自由 ReAct 循环，也没有多个独立 Agent 协作。
+
+## 前端预览
+
+以下为本项目在 V100 上运行后的真实截图。演示未配置生成模型，知识库问答使用离线资料节选；订单来自 `seed_demo`，不代表真实交易。
+
+### 工作台首页
+
+![工作台首页：推荐问题与会话入口](docs/assets/frontend-home.png)
+
+### 知识问答与来源
+
+![知识问答：清关资料节选与引用来源](docs/assets/frontend-chat.png)
+
+### 业务操作确认
+
+![业务操作：用户确认后才执行](docs/assets/frontend-confirmation.png)
+
+### 前端交互流程
+
+![前端交互与 SSE 数据流](docs/assets/frontend-flow.svg)
 
 ## 快速开始
 

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="835" viewBox="0 0 1600 835" role="img" aria-labelledby="title desc">
+<title id="title">Adaptive RAG · 前端交互</title><desc id="desc">React 19 + TypeScript / SSE 流式回答 / 浏览器本地会话</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#698099" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Inter,'Segoe UI','Microsoft YaHei',Arial,sans-serif} .label{font-size:20px;fill:#53657b} .title{font-size:25px;fill:#11283f;font-weight:650} .small{font-size:18px;fill:#53657b} .wire{fill:none;stroke:#698099;stroke-width:2;marker-end:url(#arrow)}</style>
+<rect width="1600" height="835" rx="24" fill="#f5f8fc"/>
+<rect x="48" y="43" width="6" height="66" rx="3" fill="#0b9b86"/>
+<text x="76" y="75" font-size="34" font-weight="750" fill="#11283f">Adaptive RAG · 前端交互</text>
+<text x="76" y="107" class="label">React 19 + TypeScript / SSE 流式回答 / 浏览器本地会话</text>
+<rect x="48" y="155" width="425" height="186" rx="14" fill="#ffffff" stroke="#c6d9ed" stroke-width="1.5"/>
+<text x="70" y="190" class="title" text-anchor="start">01  侧栏与会话</text>
+<text x="70" y="221" class="small" text-anchor="start">新建 / 搜索 / 切换 / 删除对话</text>
+<text x="70" y="248" class="small" text-anchor="start">浅色 / 深色主题</text>
+<text x="70" y="275" class="small" text-anchor="start">localStorage 保存历史与主题</text>
+<rect x="588" y="155" width="425" height="186" rx="14" fill="#effaf6" stroke="#b7dbd4" stroke-width="1.5"/>
+<text x="610" y="190" class="title" text-anchor="start">02  输入与请求</text>
+<text x="610" y="221" class="small" text-anchor="start">推荐问题 → Composer</text>
+<text x="610" y="248" class="small" text-anchor="start">useChat 管理消息、停止与错误</text>
+<text x="610" y="275" class="small" text-anchor="start">附带 session_id / user_id</text>
+<rect x="1128" y="155" width="424" height="186" rx="14" fill="#eff6fd" stroke="#c6d9ed" stroke-width="1.5"/>
+<text x="1150" y="190" class="title" text-anchor="start">03  FastAPI 后端</text>
+<text x="1150" y="221" class="small" text-anchor="start">GET /api/v1/health</text>
+<text x="1150" y="248" class="small" text-anchor="start">POST /api/v1/chat/stream</text>
+<text x="1150" y="275" class="small" text-anchor="start">LangGraph 节点进度 + 回答</text>
+<path d="M473 248 H588" class="wire"/>
+<path d="M1013 248 H1128" class="wire"/>
+<text x="1051" y="232" class="small" text-anchor="start">HTTP</text>
+<path d="M1340 341 V407 H800 V448" class="wire"/>
+<text x="875" y="397" class="small" text-anchor="start">SSE：状态 / 回答 / 引用 / 待确认操作</text>
+<rect x="588" y="448" width="425" height="176" rx="14" fill="#effaf6" stroke="#b7dbd4" stroke-width="1.5"/>
+<text x="610" y="483" class="title" text-anchor="start">04  MessageView 渲染</text>
+<text x="610" y="514" class="small" text-anchor="start">Markdown 回答 + 来源标签</text>
+<text x="610" y="541" class="small" text-anchor="start">流式状态 / 错误 / 复制回答</text>
+<text x="610" y="568" class="small" text-anchor="start">ActionCard 确认或取消</text>
+<path d="M588 530 H473" class="wire"/>
+<rect x="48" y="448" width="425" height="176" rx="14" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.5"/>
+<text x="70" y="483" class="title" text-anchor="start">05  保存本地历史</text>
+<text x="70" y="514" class="small" text-anchor="start">保存完整会话与消息</text>
+<text x="70" y="541" class="small" text-anchor="start">最多 50 个会话 / 每个 100 条消息</text>
+<text x="70" y="568" class="small" text-anchor="start">换设备不恢复；不存 API 密钥</text>
+<path d="M1013 530 H1340 V341" class="wire"/>
+<text x="1050" y="559" class="small" text-anchor="start">确认后附 confirm_action_id 再请求</text>
+<rect x="48" y="694" width="1504" height="92" rx="14" fill="#fffbef" stroke="#e6d4ad" stroke-width="1.5"/>
+<text x="70" y="729" class="title" text-anchor="start">业务写操作需显式确认</text>
+<text x="70" y="760" class="small" text-anchor="start">前端展示待确认提案；确认请求进入后端权限与幂等校验。浏览器 user_id 仅供演示，不是身份认证。</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280" role="img" aria-labelledby="title desc">
+<title id="title">Adaptive RAG · 系统架构</title><desc id="desc">跨境电商客服 / 按复杂度路由 / 可追溯回答 / 写操作人工确认</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#698099" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Inter,'Segoe UI','Microsoft YaHei',Arial,sans-serif} .label{font-size:20px;fill:#53657b} .title{font-size:25px;fill:#11283f;font-weight:650} .small{font-size:18px;fill:#53657b} .wire{fill:none;stroke:#698099;stroke-width:2;marker-end:url(#arrow)}</style>
+<rect width="1600" height="1280" rx="24" fill="#f5f8fc"/>
+<rect x="48" y="43" width="6" height="66" rx="3" fill="#0b9b86"/>
+<text x="76" y="75" font-size="34" font-weight="750" fill="#11283f">Adaptive RAG · 系统架构</text>
+<text x="76" y="107" class="label">跨境电商客服 / 按复杂度路由 / 可追溯回答 / 写操作人工确认</text>
+<rect x="48" y="145" width="1504" height="84" rx="14" fill="#edf9f6" stroke="#bbdcd6" stroke-width="1.5"/>
+<text x="70" y="180" class="title" text-anchor="start">交互入口：React + TypeScript Web 工作台 / CLI / HTTP API</text>
+<text x="70" y="211" class="small" text-anchor="start">流式对话 · 引用展示 · 历史会话 · 确认卡片</text>
+<path d="M800 229 V253" class="wire"/>
+<rect x="320" y="253" width="960" height="84" rx="14" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.5"/>
+<text x="342" y="288" class="title" text-anchor="start">FastAPI → ChatService</text>
+<text x="342" y="319" class="small" text-anchor="start">请求校验 · 限流 · Unit of Work · trace_id · JSON / SSE</text>
+<rect x="48" y="362" width="1504" height="728" rx="20" fill="#ffffff" stroke="#c8d8e9" stroke-width="2"/>
+<text x="76" y="397" class="title" text-anchor="start">LangGraph · 有界工作流</text>
+<path d="M800 337 V417" class="wire"/>
+<rect x="510" y="417" width="580" height="84" rx="14" fill="#eff6fd" stroke="#9bbddc" stroke-width="1.5"/>
+<text x="532" y="452" class="title" text-anchor="start">输入护栏 → 意图识别 → 复杂度路由</text>
+<text x="532" y="483" class="small" text-anchor="start">注入检测 / 边界检查；护栏命中直接拒答</text>
+<path d="M800 501 V525 H239 V549" class="wire"/>
+<path d="M800 501 V525 H609 V549" class="wire"/>
+<path d="M800 501 V525 H979 V549" class="wire"/>
+<path d="M800 501 V525 H1349 V549" class="wire"/>
+<rect x="76" y="549" width="326" height="166" rx="14" fill="#effaf6" stroke="#b5d9d2" stroke-width="1.5"/>
+<text x="98" y="584" class="title" text-anchor="start">DIRECT · 直接回答</text>
+<text x="98" y="615" class="small" text-anchor="start">问候 / 简单问题</text>
+<text x="98" y="642" class="small" text-anchor="start">跳过知识检索</text>
+<text x="98" y="669" class="small" text-anchor="start">直接进入答案生成</text>
+<rect x="446" y="549" width="326" height="166" rx="14" fill="#eff6fd" stroke="#b3cde8" stroke-width="1.5"/>
+<text x="468" y="584" class="title" text-anchor="start">SINGLE / MULTI</text>
+<text x="468" y="615" class="small" text-anchor="start">BM25 + 向量 → RRF → 精排</text>
+<text x="468" y="642" class="small" text-anchor="start">SINGLE：一轮检索</text>
+<text x="468" y="669" class="small" text-anchor="start">MULTI：改写 / 多跳 / 自纠错</text>
+<rect x="816" y="549" width="326" height="166" rx="14" fill="#f6f1fd" stroke="#d0c4ec" stroke-width="1.5"/>
+<text x="838" y="584" class="title" text-anchor="start">AGENT · 业务工具</text>
+<text x="838" y="615" class="small" text-anchor="start">Planner → 权限校验 → 执行</text>
+<text x="838" y="642" class="small" text-anchor="start">按需加载 Skill / 工具适配</text>
+<text x="838" y="669" class="small" text-anchor="start">写操作：待确认 → 用户确认</text>
+<rect x="1186" y="549" width="326" height="166" rx="14" fill="#fff4f5" stroke="#edc5cb" stroke-width="1.5"/>
+<text x="1208" y="584" class="title" text-anchor="start">REFUSE · 拒答</text>
+<text x="1208" y="615" class="small" text-anchor="start">越权 / 提示注入 / 超出边界</text>
+<text x="1208" y="642" class="small" text-anchor="start">生成固定拒答文案</text>
+<text x="1208" y="669" class="small" text-anchor="start">直接进入记忆压缩</text>
+<path d="M239 715 V750 H609 V774" class="wire"/>
+<path d="M609 715 V774" class="wire"/>
+<path d="M979 715 V750 H609 V774" class="wire"/>
+<rect x="330" y="774" width="558" height="77" rx="14" fill="#effaf6" stroke="#b5d9d2" stroke-width="1.5"/>
+<text x="352" y="809" class="title" text-anchor="start">答案生成 / 业务结果 / 待确认提案</text>
+<path d="M609 851 V875" class="wire"/>
+<rect x="330" y="875" width="558" height="77" rx="14" fill="#effaf6" stroke="#b5d9d2" stroke-width="1.5"/>
+<text x="352" y="910" class="title" text-anchor="start">忠实度检查 / 必要时修正</text>
+<path d="M609 952 V980 H800 V993" class="wire"/>
+<path d="M1349 715 V968 H800 V993" class="wire"/>
+<rect x="510" y="993" width="580" height="77" rx="14" fill="#eff6fd" stroke="#b3cde8" stroke-width="1.5"/>
+<text x="532" y="1028" class="title" text-anchor="start">记忆预算与压缩 → 返回回答</text>
+<text x="76" y="1128" class="title" text-anchor="start">依赖与存储</text>
+<rect x="48" y="1150" width="474" height="88" rx="14" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.5"/>
+<text x="70" y="1185" class="title" text-anchor="start">模型 Provider</text>
+<text x="70" y="1216" class="small" text-anchor="start">DeepSeek / Embedding / Cross-Encoder</text>
+<rect x="563" y="1150" width="474" height="88" rx="14" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.5"/>
+<text x="585" y="1185" class="title" text-anchor="start">检索与业务存储</text>
+<text x="585" y="1216" class="small" text-anchor="start">知识库 / SQLite → Postgres / Qdrant</text>
+<rect x="1078" y="1150" width="474" height="88" rx="14" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.5"/>
+<text x="1100" y="1185" class="title" text-anchor="start">缓存与可观测性</text>
+<text x="1100" y="1216" class="small" text-anchor="start">进程缓存 → Redis / 日志 / Prometheus</text>
+</svg>
