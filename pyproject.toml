@@ -1,7 +1,7 @@
 [project]
 name = "adaptive-rag-cs"
 version = "0.1.0"
-description = "Adaptive-RAG e-commerce customer service"
+description = "Adaptive-RAG cross-border e-commerce customer service"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
