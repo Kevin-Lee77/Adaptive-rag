@@ -4,7 +4,7 @@
 
 基于 **FastAPI + LangGraph + 混合检索** 的跨境电商客服系统，覆盖保税仓、直邮与国内仓的混合履约：按问题复杂度选择处理路径，回答带引用，写操作默认人工确认，全链路可观测、可评测。
 
-![CI](https://github.com/JEen-wang/Adaptive-rag/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/Kevin-Lee77/Adaptive-rag/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-22c55e)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)
@@ -84,7 +84,7 @@ flowchart LR
 需要 Python 3.11+。默认不需要 Redis / Qdrant。
 
 ```bash
-git clone https://github.com/JEen-wang/Adaptive-rag.git
+git clone https://github.com/Kevin-Lee77/Adaptive-rag.git
 cd Adaptive-rag
 
 python3 -m venv .venv
